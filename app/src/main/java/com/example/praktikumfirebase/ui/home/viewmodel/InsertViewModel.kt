@@ -3,7 +3,6 @@ package com.example.praktikumfirebase.ui.home.viewmodel
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.input.pointer.PointerEvent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.praktikumfirebase.model.Mahasiswa
