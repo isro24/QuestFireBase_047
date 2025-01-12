@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.input.pointer.PointerEvent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.praktikumfirebase.model.Mahasiswa
 import com.example.praktikumfirebase.repository.RepositoryMhs
 import kotlinx.coroutines.launch
 
@@ -83,4 +84,13 @@ data class FormErrorState(
     val alamat: String? = null,
     val kelas: String? = null,
     val angkatan: String? = null,
+)
+
+data class MahasiswaEvent(
+    val nim: String = "",
+    val nama: String = "",
+    val jenisKelamin: String = "",
+    val alamat: String = "",
+    val kelas: String = "",
+    val angkatan: String = ""
 )
