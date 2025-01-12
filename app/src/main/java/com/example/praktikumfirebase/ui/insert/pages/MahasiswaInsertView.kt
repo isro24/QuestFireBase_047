@@ -1,4 +1,4 @@
-package com.example.praktikumfirebase.ui.home.pages
+package com.example.praktikumfirebase.ui.insert.pages
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,17 +26,15 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.praktikumfirebase.model.Mahasiswa
 import com.example.praktikumfirebase.ui.PenyediaViewModel
-import com.example.praktikumfirebase.ui.home.viewmodel.FormErrorState
-import com.example.praktikumfirebase.ui.home.viewmodel.FormState
-import com.example.praktikumfirebase.ui.home.viewmodel.InsertUiState
-import com.example.praktikumfirebase.ui.home.viewmodel.InsertViewModel
-import com.example.praktikumfirebase.ui.home.viewmodel.MahasiswaEvent
+import com.example.praktikumfirebase.ui.insert.viewmodel.FormErrorState
+import com.example.praktikumfirebase.ui.insert.viewmodel.FormState
+import com.example.praktikumfirebase.ui.insert.viewmodel.InsertUiState
+import com.example.praktikumfirebase.ui.insert.viewmodel.InsertViewModel
+import com.example.praktikumfirebase.ui.insert.viewmodel.MahasiswaEvent
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

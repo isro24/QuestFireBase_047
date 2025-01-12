@@ -6,7 +6,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.praktikumfirebase.MahasiswaApp
 import com.example.praktikumfirebase.ui.home.viewmodel.HomeViewModel
-import com.example.praktikumfirebase.ui.home.viewmodel.InsertViewModel
+import com.example.praktikumfirebase.ui.insert.viewmodel.InsertViewModel
 
 object PenyediaViewModel{
     val Factory = viewModelFactory {

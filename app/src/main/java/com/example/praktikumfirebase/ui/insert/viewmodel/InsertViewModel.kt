@@ -1,4 +1,4 @@
-package com.example.praktikumfirebase.ui.home.viewmodel
+package com.example.praktikumfirebase.ui.insert.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
