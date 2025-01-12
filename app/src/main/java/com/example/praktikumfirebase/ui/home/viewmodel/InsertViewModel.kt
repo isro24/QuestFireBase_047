@@ -3,6 +3,7 @@ package com.example.praktikumfirebase.ui.home.viewmodel
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.input.pointer.PointerEvent
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.praktikumfirebase.repository.RepositoryMhs
@@ -68,3 +69,8 @@ sealed class FormState {
     data class Success(val message: String) : FormState()
     data class Error(val message: String) : FormState()
 }
+
+data class InsertUiState(
+    val insertUiEvent: MahasiswaEvent = MahasiswaEvent(),
+    val isEntryValid: FormErrorState = FormErrorState()
+)
