@@ -6,6 +6,7 @@ import com.google.firebase.firestore.Query
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.tasks.await
 
 class NetworkReposirotyMhs(
     private val firestore: FirebaseFirestore
@@ -46,7 +47,14 @@ class NetworkReposirotyMhs(
     }
 
     override suspend fun deleteMhs(mahasiswa: Mahasiswa) {
-        TODO("Not yet implemented")
+        try {
+            firestore.collection("Mahasiswa")
+                .document(mahasiswa.nim)
+                .delete()
+                .await()
+        } catch (e: Exception){
+            throw Exception ("Gagal menghapus data Mahasiswa: ${e.message}")
+        }
     }
 
     override suspend fun updateMhs(mahasiswa: Mahasiswa) {
