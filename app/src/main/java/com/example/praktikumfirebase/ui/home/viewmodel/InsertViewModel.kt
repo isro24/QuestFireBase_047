@@ -42,12 +42,12 @@ class InsertViewModel (
     fun insertMhs(){
         if(validateFields()){
             viewModelScope.launch {
-                uiState - FormState.Loading
+                uiState = FormState.Loading
                 try {
                     mhs.insertMhs(uiEvent.insertUiEvent.toMhsModel())
                     uiState = FormState.Success("Data berhasil disimpan")
                 } catch (e: Exception){
-                    uiState = FOrmState.Error("Data gagal disimpan")
+                    uiState = FormState.Error("Data gagal disimpan")
                 }
             }
         } else {
@@ -93,4 +93,13 @@ data class MahasiswaEvent(
     val alamat: String = "",
     val kelas: String = "",
     val angkatan: String = ""
+)
+
+fun MahasiswaEvent.toMhsModel() : Mahasiswa = Mahasiswa(
+    nim = nim,
+    nama = nama,
+    jenisKelamin = jenisKelamin,
+    alamat = alamat,
+    kelas = kelas,
+    angkatan = angkatan
 )
