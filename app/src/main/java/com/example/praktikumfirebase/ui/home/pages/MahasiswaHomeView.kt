@@ -36,7 +36,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.praktikumfirebase.model.Mahasiswa
@@ -56,6 +55,20 @@ fun HomeScreen(
 
     var showDeleteDialog by remember { mutableStateOf(false) }
     var selectedMahasiswa: Mahasiswa? by remember { mutableStateOf(null) }
+
+    if (showDeleteDialog && selectedMahasiswa != null) {
+        DeleteConfirmationDialog(
+            onDeleteConfirm = {
+                selectedMahasiswa?.let { mahasiswa ->
+                    viewModel.deleteMhs(mahasiswa)
+                }
+                showDeleteDialog = false
+            },
+            onDeleteCancel = {
+                showDeleteDialog = false
+            }
+        )
+    }
 
     Scaffold (
         modifier = modifier,

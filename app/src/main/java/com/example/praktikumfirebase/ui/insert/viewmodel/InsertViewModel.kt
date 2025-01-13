@@ -10,7 +10,7 @@ import com.example.praktikumfirebase.repository.RepositoryMhs
 import kotlinx.coroutines.launch
 
 class InsertViewModel (
-    private val mhs: RepositoryMhs
+    private val repositoryMhs: RepositoryMhs
 ): ViewModel(){
     var uiEvent: InsertUiState by mutableStateOf(InsertUiState())
         private set
@@ -23,27 +23,25 @@ class InsertViewModel (
             insertUiEvent = mahasiswaEvent
         )
     }
-
     fun validateFields(): Boolean{
         val event = uiEvent.insertUiEvent
         val errorState = FormErrorState(
             nim = if (event.nim.isNotEmpty()) null else "Nim tidak boleh kosong",
             nama = if (event.nama.isNotEmpty()) null else "Nama tidak boleh kosong",
             jenisKelamin = if (event.jenisKelamin.isNotEmpty()) null else "Jenis Kelamin tidak boleh kosong",
-            alamat = if (event.alamat.isNotEmpty()) null else "Alamat Kelamin tidak boleh kosong",
+            alamat = if (event.alamat.isNotEmpty()) null else "Alamat tidak boleh kosong",
             kelas = if (event.kelas.isNotEmpty()) null else "Kelas tidak boleh kosong",
             angkatan = if (event.angkatan.isNotEmpty()) null else "Angkatan tidak boleh kosong",
             )
         uiEvent = uiEvent.copy(isEntryValid = errorState)
         return errorState.isValid()
     }
-
     fun insertMhs(){
         if(validateFields()){
             viewModelScope.launch {
                 uiState = FormState.Loading
                 try {
-                    mhs.insertMhs(uiEvent.insertUiEvent.toMhsModel())
+                    repositoryMhs.insertMhs(uiEvent.insertUiEvent.toMhsModel())
                     uiState = FormState.Success("Data berhasil disimpan")
                 } catch (e: Exception){
                     uiState = FormState.Error("Data gagal disimpan")

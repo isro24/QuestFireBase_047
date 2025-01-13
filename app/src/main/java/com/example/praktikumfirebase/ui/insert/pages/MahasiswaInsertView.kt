@@ -101,7 +101,7 @@ fun InsertMhsView (
         ){
             InsertBodyMhs(
                 uiState = uiEvent,
-                homeuiState = uiState,
+                homeUiState = uiState,
                 onValueChange = { updateEvent ->
                     viewModel.updateState(updateEvent)
                 },
@@ -121,7 +121,7 @@ fun InsertBodyMhs(
     onValueChange: (MahasiswaEvent) -> Unit,
     uiState: InsertUiState,
     onClick: () -> Unit,
-    homeuiState: FormState
+    homeUiState: FormState
 ){
     Column (
         modifier = modifier.fillMaxWidth(),
@@ -137,9 +137,9 @@ fun InsertBodyMhs(
         Button(
             onClick = onClick,
             modifier = Modifier.fillMaxWidth(),
-            enabled = homeuiState !is FormState.Loading
+            enabled = homeUiState !is FormState.Loading,
         ) {
-            if (homeuiState is FormState.Loading) {
+            if (homeUiState is FormState.Loading){
                 CircularProgressIndicator(
                     color = Color.White,
                     modifier = Modifier
@@ -165,7 +165,7 @@ fun FormMahasiswa (
     val kelas = listOf("A","B","C","D","E",)
 
     Column (
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth()
     ){
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
@@ -189,7 +189,7 @@ fun FormMahasiswa (
                 onValueChange(mahasiswaEvent.copy(nim = it))
             },
             label = { Text(text = "NIM")},
-            isError = errorState.nama != null,
+            isError = errorState.nim != null,
             placeholder =  { Text(text = "Masukkan nim")},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
@@ -212,7 +212,6 @@ fun FormMahasiswa (
                         selected = mahasiswaEvent.jenisKelamin == jk,
                         onClick = {
                             onValueChange(mahasiswaEvent.copy(jenisKelamin = jk))
-
                         }
                     )
                     Text(text = jk)
@@ -228,10 +227,10 @@ fun FormMahasiswa (
             modifier = Modifier.fillMaxWidth(),
             value = mahasiswaEvent.alamat,
             onValueChange = {
-                onValueChange(mahasiswaEvent.copy(nim = it))
+                onValueChange(mahasiswaEvent.copy(alamat = it))
             },
             label = { Text(text = "Alamat")},
-            isError = errorState.nama != null,
+            isError = errorState.alamat != null,
             placeholder =  { Text(text = "Masukkan alamat")
             }
         )
@@ -273,7 +272,7 @@ fun FormMahasiswa (
                 onValueChange(mahasiswaEvent.copy(angkatan = it))
             },
             label = { Text(text = "Angkatan")},
-            isError = errorState.nama != null,
+            isError = errorState.angkatan != null,
             placeholder =  { Text(text = "Masukkan angkatan")},
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
