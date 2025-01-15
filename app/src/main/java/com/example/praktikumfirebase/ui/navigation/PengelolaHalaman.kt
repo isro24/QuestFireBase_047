@@ -39,26 +39,26 @@ fun PengelolaHalaman (
                 }
             )
         }
-        composable(
-            DestinasiDetail.routeWithArgs,
-            arguments = listOf(
-                navArgument(DestinasiDetail.NIM){
-                    type = NavType.StringType
-                }
-            )
-        ) {
-            val nim = it.arguments?.getString(DestinasiDetail.NIM)
-            nim?.let {
-                MahasiswaDetailView(
-                    NavigateBack = {
-                        navController.navigate(DestinasiHome.route) {
-                            popUpTo(DestinasiHome.route) {
-                                inclusive = true
-                            }
-                        }
-                    },
-                )
-            }
-        }
+//        composable(
+//            DestinasiDetail.routeWithArgs,
+//            arguments = listOf(
+//                navArgument(DestinasiDetail.NIM){
+//                    type = NavType.StringType
+//                }
+//            )
+//        ) {
+//            val nim = it.arguments?.getString(DestinasiDetail.NIM)
+//            nim?.let {
+//                MahasiswaDetailView(
+//                    NavigateBack = {
+//                        navController.navigate(DestinasiHome.route) {
+//                            popUpTo(DestinasiHome.route) {
+//                                inclusive = true
+//                            }
+//                        }
+//                    },
+//                )
+//            }
+//        }
     }
 }
