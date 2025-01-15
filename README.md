@@ -1,9 +1,6 @@
 Tampilan Home
-![Tampilan Home](https://github.com/user-attachments/assets/1d4216bb-63ef-4acb-bed9-887e4a5b0364)
+![image](https://github.com/user-attachments/assets/6c586a74-ad33-4fea-9f92-2cdec74be300)
 
 Tampilan Tambah Mahasiswa
-![Tampilan Tambah Mahasiswa](https://github.com/user-attachments/assets/e7b174cb-e37b-4d0d-9221-1937c3ee1657)
-
-Tampilan Home Setelah Tambah Mahasiswa
-![Tampilan Home Setelah Tambah Data](https://github.com/user-attachments/assets/a9a2a4ff-36fe-4c52-b368-4bfc70855b04)
+![image](https://github.com/user-attachments/assets/7adf5711-6a14-46e1-8615-c3e8f8d5302c)
 
