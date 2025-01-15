@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -166,6 +168,8 @@ fun FormMahasiswa (
 
     Column (
         modifier = modifier.fillMaxWidth()
+            .verticalScroll(rememberScrollState())
+
     ){
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
@@ -278,6 +282,50 @@ fun FormMahasiswa (
         )
         Text(
             text = errorState.angkatan ?: "",
+            color = Color.Red
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = mahasiswaEvent.judulSkripsi,
+            onValueChange = {
+                onValueChange(mahasiswaEvent.copy(judulSkripsi = it))
+            },
+            label = { Text(text = "Judul  Skripsi")},
+            isError = errorState.judulSkripsi != null,
+            placeholder =  { Text(text = "Masukkan judul skripsi")}
+        )
+        Text(
+            text = errorState.judulSkripsi ?: "",
+            color = Color.Red
+        )
+
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = mahasiswaEvent.dosenPembimbingPertama,
+            onValueChange = {
+                onValueChange(mahasiswaEvent.copy(dosenPembimbingPertama = it))
+            },
+            label = { Text(text = "Dosen Pembimbing 1")},
+            isError = errorState.judulSkripsi != null,
+            placeholder =  { Text(text = "Masukkan dosen pembimbing 1")}
+        )
+        Text(
+            text = errorState.dosenPembimbingPertama ?: "",
+            color = Color.Red
+        )
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = mahasiswaEvent.dosenPembimbingKedua,
+            onValueChange = {
+                onValueChange(mahasiswaEvent.copy(dosenPembimbingKedua = it))
+            },
+            label = { Text(text = "Dosen Pembimbing 2")},
+            isError = errorState.judulSkripsi != null,
+            placeholder =  { Text(text = "Masukkan dosen pembimbing 2")}
+        )
+        Text(
+            text = errorState.dosenPembimbingKedua ?: "",
             color = Color.Red
         )
     }

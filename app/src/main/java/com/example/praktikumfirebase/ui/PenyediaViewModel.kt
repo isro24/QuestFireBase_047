@@ -1,6 +1,8 @@
 package com.example.praktikumfirebase.ui
 
+import DetailViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
@@ -17,6 +19,12 @@ object PenyediaViewModel{
         }
         initializer {
             InsertViewModel(
+                MahasiswaApp().container.repositoryMhs
+            )
+        }
+        initializer {
+            DetailViewModel(
+                createSavedStateHandle(),
                 MahasiswaApp().container.repositoryMhs
             )
         }
